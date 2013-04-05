@@ -29,10 +29,19 @@
 @pink:                  #c3325f;
 @purple:                #7a43b6;
 
+// GovernorHub colors
+// -------------------------
+@ghBeige:               #f1f1e4;
+@skyBlue:               #60afdf;
+@ghDarkBlue:            #153a4d;
+@ghPale:                #eaf1e6;
+@ghGray:                #e0e0e0;
+
 
 // Scaffolding
 // -------------------------
-@bodyBackground:        @white;
+@bodyBackground:        @ghBeige;
+@headerBackground:      @skyBlue;
 @textColor:             @grayDark;
 
 
@@ -181,7 +190,7 @@
 @navbarCollapseDesktopWidth:      @navbarCollapseWidth + 1;
 
 @navbarHeight:                    40px;
-@navbarBackgroundHighlight:       #ffffff;
+@navbarBackgroundHighlight:       #f6f6f6;
 @navbarBackground:                darken(@navbarBackgroundHighlight, 5%);
 @navbarBorder:                    darken(@navbarBackground, 12%);
 
@@ -195,8 +204,8 @@
 @navbarBrandColor:                @navbarLinkColor;
 
 // Inverted navbar
-@navbarInverseBackground:                #111111;
-@navbarInverseBackgroundHighlight:       #222222;
+@navbarInverseBackground:                @ghDarkBlue;
+@navbarInverseBackgroundHighlight:       lighten(@navbarInverseBackground, 5%);
 @navbarInverseBorder:                    #252525;
 
 @navbarInverseText:                      @grayLight;
@@ -299,3 +308,33 @@
 // 768px-979px
 @fluidGridColumnWidth768:      percentage(@gridColumnWidth768/@gridRowWidth768);
 @fluidGridGutterWidth768:      percentage(@gridGutterWidth768/@gridRowWidth768);
+
+// GOVERNORHUB BITS AND BOBS
+// ----------------------------------------------
+
+// Sizing
+// -----------------------
+@wireClearance:        10px;
+@logoWidth:            150px;
+@maxTopMenuWidth:      @gridRowWidth - @logoWidth - @gridGutterWidth;
+@topMenuSpacing:       10px;
+
+// Apps
+@appSize:              60px;
+@appPadding:           10px;
+@hangingLength:        15px;
+
+// Sheets
+@sheetSeparation:      20px;
+
+// Colours
+// ------------------------
+@wireColourLight:      #59788C;
+@wireColourDark:       #404A53;
+
+@appBgColour:          @white;
+@appLabelColour:       @white;
+
+@pageTitleDark:        @ghGray;
+
+@sheetBg:              @white;

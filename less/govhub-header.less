@@ -1,0 +1,136 @@
+// GovernorHub header
+// 
+
+// Header
+// -------------------------
+.header {
+    margin: 0;
+    background-color: @headerBackground;
+
+    .wire {
+        border-top: 1px @wireColourLight solid;
+        border-bottom: 1px @wireColourDark solid;
+        height: 0;
+        width: 100%;
+        z-index: 11;
+    }
+
+    .sky {
+        background-color: @headerBackground;
+        width: 100%;
+    }
+
+    .top-menu {
+        width: 100%;
+        padding-bottom: @wireClearance;
+        position: fixed;
+        top: 0;
+        z-index: 9999;
+
+        .navbar {
+            margin-bottom: 0;
+            .navbar-inner {
+                padding-top: 10px;
+                margin-top: -10px;
+                padding-left: @topMenuSpacing / 2;
+                padding-right: @topMenuSpacing / 2;
+                max-width: @maxTopMenuWidth;
+
+                li {
+                    padding-left: @topMenuSpacing / 2;
+                    padding-right: @topMenuSpacing / 2;
+                }
+            }
+        }
+    }
+
+    .lower-menu {
+        width: 100%;
+        z-index: 10;
+
+        .nav-apps {
+            background-color: @headerBackground;
+            .border-bottom-radius(@baseLineHeight);    
+        }
+        
+    }
+}
+
+// Navigation
+.nav-apps {
+    height: @hangingLength + @appSize + @baseLineHeight;
+    margin-bottom: 0;
+    float: right;
+}
+
+.nav-apps > div {
+    float: right;
+}
+
+.nav-apps > li { 
+    float: right;
+    border-left: 1px @wireColourLight solid;
+    border-right: 1px @wireColourDark solid;
+    width: 0;
+    margin-left: @appSize / 2 - 1px;
+    margin-right: @appSize / 2 + @appPadding - 1px;
+    padding-top: @hangingLength;
+
+    a {
+        .size(@appSize + @baseLineHeight, @appSize + 10px);
+        margin-left: -1 * @appSize / 2 - 6px;
+        margin-bottom: -1 * @baseLineHeight;
+
+        &:hover,
+        &:focus {
+            background-color: transparent;
+
+            .app-icon {
+                background-color: darken(@appBgColour, 10%);
+            }
+
+            .app-label {
+                color: darken(@appLabelColour, 10%);
+            }
+        }
+    }
+
+    .app-icon {
+        margin: auto;
+        .app-box(@appSize);
+        background-color: @appBgColour;
+    }
+
+    .app-label {
+        font-size: 85%;
+        color: @appLabelColour;
+        width: @appSize + 10px;
+        text-align: center;
+        .text-overflow();
+    }
+}
+
+// Page header
+.gh-page-header {
+    background-color: @headerBackground;
+    margin-bottom: @wireClearance;
+
+    .page-header {
+        border-bottom:   0;
+        text-transform:  uppercase;
+        color:           white;
+        text-shadow:     0px 1px 4px rgba(9, 45, 69, 0.45);
+        letter-spacing:  -2px;
+        font-size:       3.3em;
+        line-height:     1em;
+        margin:          0;
+        margin-top:      @hangingLength;
+        padding-bottom:  @hangingLength;
+
+        i {
+            text-transform: none;
+            font-weight: normal;
+            color: @pageTitleDark;
+        }
+    }
+}
