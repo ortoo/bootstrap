@@ -99,14 +99,36 @@
         margin: auto;
         .app-box(@appSize);
         background-color: @appBgColour;
+        .box-shadow(0 1px 3px rgba(0,0,0,.1));
+
+        .glyphicons {
+            margin-top: 0.2 * @appSize;
+            margin-left: 0.2 * @appSize;
+
+            i:before {
+                font-size: 0.6 * @appSize;
+                color: @gray;
+                text-shadow: 0px 1px 2px rgba(9, 45, 69, 0.45);
+            }
+        }
     }
 
     .app-label {
         font-size: 85%;
+        font-weight: bold;
+        text-shadow: 0px 1px 2px rgba(9, 45, 69, 0.45);
         color: @appLabelColour;
         width: @appSize + 10px;
         text-align: center;
         .text-overflow();
+    }
+}
+
+// Active apps changes
+.nav-apps > li.active {
+
+    .app-icon .glyphicons i:before {
+        color: @ghDarkBlue;
     }
 }
 
