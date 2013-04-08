@@ -1,0 +1,19 @@
+// Governorhub content
+
+.main-content {
+    padding-top: @sheetPadding;
+}
+
+.sidebar-high,
+.sidebar {
+    margin-top: (-1 * @sheetPadding) - 30px;
+
+    .accordion-group {
+        background-color: @sidebarColour;
+        .gh-elem-shadow();
+    }
+}
+
+.sidebar-high {
+    margin-top: ((-1 * @sheetPadding) - 30 - (@ghMainNavbarHeight /2));
+}

@@ -3,29 +3,56 @@
 
 // Header
 // -------------------------
+
+@logoHeight: 60px;
+@logoWidth:  224x;
+@logoWireOffset: 16px;
+@pagePadding: 20px;
+
+body {
+    min-width: @gridRowWidth;
+    padding: 0 @pagePadding;
+}
+
 .header {
-    margin: 0;
+    margin: 0 (-1 * @pagePadding);
     background-color: @headerBackground;
 
     .wire {
+
+        //height: @logoHeight;
+        width: 100%;
+        
         border-top: 1px @wireColourLight solid;
         border-bottom: 1px @wireColourDark solid;
         height: 0;
         width: 100%;
-        z-index: 11;
+        //margin-top: -1 * @logoWireOffset;
+        position: relative;
+        z-index: 9997;
+    }
+
+    .gh-logo {
+        width: @logoWidth;
+        height: @logoHeight;
+        float: left;
+        position: relative;
+        z-index: 9999;
+        margin-bottom: -1 * (@logoWireOffset);
+        margin-top: -1 * (@logoHeight - @logoWireOffset);
     }
 
     .sky {
         background-color: @headerBackground;
         width: 100%;
+        z-index: 9996;
     }
 
     .top-menu {
         width: 100%;
         padding-bottom: @wireClearance;
-        position: fixed;
-        top: 0;
-        z-index: 9999;
+        z-index: 9998;
+        position: relative;
 
         .navbar {
             margin-bottom: 0;
@@ -135,7 +162,12 @@
 // Page header
 .gh-page-header {
     background-color: @headerBackground;
-    margin-bottom: @wireClearance;
+    // iOS safari seems to put in a 1 pixel gap above here. Not sure why, but this removes it...
+    margin-top: -1px;
+    padding-top: 1px;
+
+    margin-left: -1 * @pagePadding;
+    margin-right: -1 * @pagePadding;
 
     .page-header {
         border-bottom:   0;
@@ -153,6 +185,66 @@
             text-transform: none;
             font-weight: normal;
             color: @pageTitleDark;
+        }
+    }
+}
+
+.gh-main-nav {
+
+    background-color: @headerBackground;
+    height: @ghMainNavbarHeight / 2;
+    margin-bottom: @ghMainNavbarHeight / 2;
+    margin-left: -1 * @pagePadding;
+    margin-right: -1 * @pagePadding;
+
+    // iOS safari seems to put in a 1 pixel gap above here. Not sure why, but this removes it...
+    margin-top: -1px;
+    padding-top: 1px;
+
+    .navbar {
+        margin-bottom: 0;
+        float: left;
+    }
+
+    .nav {
+        margin: 0;
+
+        .first {
+            padding-right: 9px;
+            border-right: 1px solid @navbarBackgroundHighlight;
+        }
+
+        .middle {
+            padding: 0 9px;
+            border-left: 1px solid @navbarBackground;
+            border-right: 1px solid @navbarBackgroundHighlight;
+        }
+
+        .last {
+            padding-left: 9px;
+            border-left: 1px solid @navbarBackground;
+        }
+
+        .first.last {
+            border-left: none;
+            border-right: none;
+            padding: 0;
+        }
+
+        & > li > a {
+            text-transform: uppercase;
+            font-weight: 700;
+            color: @ghLightBlue;
+            padding: ((@ghMainNavbarHeight - @baseLineHeight)/2) 13px;
+        }
+    }
+
+    .navbar .nav > .active > a {
+        &,
+        &:hover,
+        &:focus {
+            background-color: transparent;
+            .box-shadow(none);
         }
     }
 }

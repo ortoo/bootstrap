@@ -1,10 +1,56 @@
 // GovernorHub Sheets
 
-@sheetPadding: 20px;
+.sheet-media, .sheet {
+    h1, h2, h3, h4, h5, h6 {
+        color: @mediaHeadingColour;
+        a {
+            color: @mediaHeadingColour;
+        }
+    }
+}
+
+.sheet-border() {
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0,0,0,.2);
+}
 
 .sheet {
     background-color: @sheetBg;
-    .box-shadow(0 1px 3px rgba(0,0,0,.1));
+    .gh-elem-shadow();
     padding: @sheetPadding;
     margin-bottom: @sheetSeparation;
+    .sheet-border();
 }
+
+.sheet-media {
+    & > .media > a img {
+        margin-top: @sheetPadding;
+    }
+
+    .media > a img {
+        padding: 4px;
+        background-color: #fff;
+        .gh-elem-shadow(); 
+        .sheet-border();
+    }
+
+    & > .media > .media-body {
+        .sheet;
+    }
+
+    .media-body > small > textarea {
+        width: 97%;
+    }
+
+    & > .media {
+        margin-top: 0;
+    }
+
+    .sheet-appendage {
+        border-top: 1px solid #ccc;
+        border-top: 1px solid rgba(0,0,0,.2);
+        margin: @sheetPadding (-1 * @sheetPadding) (-1 * @sheetPadding) (-1 * @sheetPadding);
+        padding: @sheetPadding;
+        background-color: @sheetAppendBg;
+    }
+} 
