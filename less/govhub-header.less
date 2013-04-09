@@ -5,17 +5,16 @@
 // -------------------------
 
 @logoHeight: 60px;
-@logoWidth:  224x;
+@logoWidth:  224px;
 @logoWireOffset: 16px;
-@pagePadding: 20px;
-
+@fullWidthPadding: @pagePadding + @sheetPadding;
 body {
-    min-width: @gridRowWidth;
-    padding: 0 @pagePadding;
+    min-width: @gridRowWidth + 2 * @sheetPadding;
+    padding: 0 @fullWidthPadding;
 }
 
 .header {
-    margin: 0 (-1 * @pagePadding);
+    margin: 0 (-1 * @fullWidthPadding);
     background-color: @headerBackground;
 
     .wire {
@@ -29,7 +28,15 @@ body {
         width: 100%;
         //margin-top: -1 * @logoWireOffset;
         position: relative;
-        z-index: 9997;
+        z-index: 997;
+    }
+
+    .wire-thick {
+        border-top: 5px @wireColourDark solid;
+        height: 0;
+        width: 100%;
+        margin-top: -48px;
+        padding-top: 30px;
     }
 
     .gh-logo {
@@ -37,7 +44,7 @@ body {
         height: @logoHeight;
         float: left;
         position: relative;
-        z-index: 9999;
+        z-index: 999;
         margin-bottom: -1 * (@logoWireOffset);
         margin-top: -1 * (@logoHeight - @logoWireOffset);
     }
@@ -45,13 +52,13 @@ body {
     .sky {
         background-color: @headerBackground;
         width: 100%;
-        z-index: 9996;
+        z-index: 996;
     }
 
     .top-menu {
         width: 100%;
         padding-bottom: @wireClearance;
-        z-index: 9998;
+        z-index: 998;
         position: relative;
 
         .navbar {
@@ -74,20 +81,33 @@ body {
     .lower-menu {
         width: 100%;
         z-index: 10;
-
-        .nav-apps {
-            background-color: @headerBackground;
-            .border-bottom-radius(@baseLineHeight);    
-        }
-        
+        position: relative;
+        height: @hangingLength + @appSize + @baseLineHeight;
     }
+}
+
+.hanging-wire {
+    border-left: 1px @wireColourLight solid;
+    border-right: 1px @wireColourDark solid;
+    width: 0;
+    margin: auto;
+    height: @hangingLength;
+}
+
+.nav-wrapper {
+    position: relative;
 }
 
 // Navigation
 .nav-apps {
-    height: @hangingLength + @appSize + @baseLineHeight;
     margin-bottom: 0;
-    float: right;
+    position: absolute;
+    top: 0;
+    right: 0;
+    //float: right;
+    padding: 0 10px;
+    background-color: @headerBackground;
+    .border-bottom-radius(@baseLineHeight);    
 }
 
 .nav-apps > div {
@@ -96,20 +116,10 @@ body {
 
 .nav-apps > li { 
     float: right;
-    border-left: 1px @wireColourLight solid;
-    border-right: 1px @wireColourDark solid;
-    width: 0;
-    margin-left: @appSize / 2 - 1px;
-    margin-right: @appSize / 2 + @appPadding - 1px;
-    padding-top: @hangingLength;
-
     a {
-        .size(@appSize + @baseLineHeight, @appSize + 10px);
-        margin-left: -1 * @appSize / 2 - 6px;
-        margin-bottom: -1 * @baseLineHeight;
+        width: @appSize + 10px;
 
-        &:hover,
-        &:focus {
+        &:hover {
             background-color: transparent;
 
             .app-icon {
@@ -118,6 +128,9 @@ body {
 
             .app-label {
                 color: darken(@appLabelColour, 10%);
+                // white-space: normal;
+                // padding: (@baseLineHeight * .2) 0;
+                // line-height: @baseLineHeight * .6;
             }
         }
     }
@@ -166,8 +179,8 @@ body {
     margin-top: -1px;
     padding-top: 1px;
 
-    margin-left: -1 * @pagePadding;
-    margin-right: -1 * @pagePadding;
+    margin-left: -1 * @fullWidthPadding;
+    margin-right: -1 * @fullWidthPadding;
 
     .page-header {
         border-bottom:   0;
@@ -194,8 +207,8 @@ body {
     background-color: @headerBackground;
     height: @ghMainNavbarHeight / 2;
     margin-bottom: @ghMainNavbarHeight / 2;
-    margin-left: -1 * @pagePadding;
-    margin-right: -1 * @pagePadding;
+    margin-left: -1 * @fullWidthPadding;
+    margin-right: -1 * @fullWidthPadding;
 
     // iOS safari seems to put in a 1 pixel gap above here. Not sure why, but this removes it...
     margin-top: -1px;

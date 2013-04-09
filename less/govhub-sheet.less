@@ -20,6 +20,18 @@
     padding: @sheetPadding;
     margin-bottom: @sheetSeparation;
     .sheet-border();
+
+    .appendage {
+        .sheet-appendage();
+    }
+}
+
+.sheet-appendage {
+    border-top: 1px solid #ccc;
+    border-top: 1px solid rgba(0,0,0,.2);
+    margin: @sheetPadding (-1 * @sheetPadding) (-1 * @sheetPadding) (-1 * @sheetPadding);
+    padding: @sheetPadding;
+    background-color: @sheetAppendBg;
 }
 
 .sheet-media {
@@ -44,13 +56,5 @@
 
     & > .media {
         margin-top: 0;
-    }
-
-    .sheet-appendage {
-        border-top: 1px solid #ccc;
-        border-top: 1px solid rgba(0,0,0,.2);
-        margin: @sheetPadding (-1 * @sheetPadding) (-1 * @sheetPadding) (-1 * @sheetPadding);
-        padding: @sheetPadding;
-        background-color: @sheetAppendBg;
     }
 } 

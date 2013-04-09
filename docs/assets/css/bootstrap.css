@@ -896,7 +896,7 @@ dd {
 hr {
   margin: 20px 0;
   border: 0;
-  border-top: 1px solid #eeeeee;
+  border-top: 1px solid #60afdf;
   border-bottom: 1px solid #ffffff;
 }
 
@@ -6134,43 +6134,51 @@ a.badge:focus {
 }
 
 body {
-  min-width: 940px;
-  padding: 0 20px;
+  min-width: 980px;
+  padding: 0 40px;
 }
 
 .header {
-  margin: 0 -20px;
+  margin: 0 -40px;
   background-color: #60afdf;
 }
 
 .header .wire {
   position: relative;
-  z-index: 9997;
+  z-index: 997;
   width: 100%;
   height: 0;
   border-top: 1px #59788c solid;
   border-bottom: 1px #404a53 solid;
 }
 
+.header .wire-thick {
+  width: 100%;
+  height: 0;
+  padding-top: 30px;
+  margin-top: -48px;
+  border-top: 5px #404a53 solid;
+}
+
 .header .gh-logo {
   position: relative;
-  z-index: 9999;
+  z-index: 999;
   float: left;
-  width: 224 x;
+  width: 224px;
   height: 60px;
   margin-top: -44px;
   margin-bottom: -16px;
 }
 
 .header .sky {
-  z-index: 9996;
+  z-index: 996;
   width: 100%;
   background-color: #60afdf;
 }
 
 .header .top-menu {
   position: relative;
-  z-index: 9998;
+  z-index: 998;
   width: 100%;
   padding-bottom: 10px;
 }
@@ -6180,7 +6188,7 @@ body {
 }
 
 .header .top-menu .navbar .navbar-inner {
-  max-width: NaNpx;
+  max-width: 696px;
   padding-top: 10px;
   padding-right: 5px;
   padding-left: 5px;
@@ -6193,11 +6201,30 @@ body {
 }
 
 .header .lower-menu {
+  position: relative;
   z-index: 10;
   width: 100%;
+  height: 95px;
 }
 
-.header .lower-menu .nav-apps {
+.hanging-wire {
+  width: 0;
+  height: 15px;
+  margin: auto;
+  border-right: 1px #404a53 solid;
+  border-left: 1px #59788c solid;
+}
+
+.nav-wrapper {
+  position: relative;
+}
+
+.nav-apps {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 10px;
+  margin-bottom: 0;
   background-color: #60afdf;
   -webkit-border-bottom-right-radius: 20px;
           border-bottom-right-radius: 20px;
@@ -6207,45 +6234,27 @@ body {
   -moz-border-radius-bottomleft: 20px;
 }
 
-.nav-apps {
-  float: right;
-  height: 95px;
-  margin-bottom: 0;
-}
-
 .nav-apps > div {
   float: right;
 }
 
 .nav-apps > li {
   float: right;
-  width: 0;
-  padding-top: 15px;
-  margin-right: 39px;
-  margin-left: 29px;
-  border-right: 1px #404a53 solid;
-  border-left: 1px #59788c solid;
 }
 
 .nav-apps > li a {
   width: 70px;
-  height: 80px;
-  margin-bottom: -20px;
-  margin-left: -36px;
 }
 
-.nav-apps > li a:hover,
-.nav-apps > li a:focus {
+.nav-apps > li a:hover {
   background-color: transparent;
 }
 
-.nav-apps > li a:hover .app-icon,
-.nav-apps > li a:focus .app-icon {
+.nav-apps > li a:hover .app-icon {
   background-color: #e6e6e6;
 }
 
-.nav-apps > li a:hover .app-label,
-.nav-apps > li a:focus .app-label {
+.nav-apps > li a:hover .app-label {
   color: #e6e6e6;
 }
 
@@ -6292,8 +6301,8 @@ body {
 .gh-page-header {
   padding-top: 1px;
   margin-top: -1px;
-  margin-right: -20px;
-  margin-left: -20px;
+  margin-right: -40px;
+  margin-left: -40px;
   background-color: #60afdf;
 }
 
@@ -6320,9 +6329,9 @@ body {
   height: 30px;
   padding-top: 1px;
   margin-top: -1px;
-  margin-right: -20px;
+  margin-right: -40px;
   margin-bottom: 30px;
-  margin-left: -20px;
+  margin-left: -40px;
   background-color: #60afdf;
 }
 
@@ -6414,6 +6423,22 @@ body {
           box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
+.sheet .appendage {
+  padding: 20px;
+  margin: 20px -20px -20px -20px;
+  background-color: #f6f6f0;
+  border-top: 1px solid #ccc;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.sheet-appendage {
+  padding: 20px;
+  margin: 20px -20px -20px -20px;
+  background-color: #f6f6f0;
+  border-top: 1px solid #ccc;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
 .sheet-media > .media > a img {
   margin-top: 20px;
 }
@@ -6457,6 +6482,14 @@ body {
   color: #153a4d;
 }
 
+.sheet-media > .media > .media-body .appendage {
+  padding: 20px;
+  margin: 20px -20px -20px -20px;
+  background-color: #f6f6f0;
+  border-top: 1px solid #ccc;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
 .sheet-media .media-body > small > textarea {
   width: 97%;
 }
@@ -6465,15 +6498,13 @@ body {
   margin-top: 0;
 }
 
-.sheet-media .sheet-appendage {
-  padding: 20px;
-  margin: 20px -20px -20px -20px;
-  background-color: #f6f6f0;
-  border-top: 1px solid #ccc;
-  border-top: 1px solid rgba(0, 0, 0, 0.2);
+body.logged-out {
+  background-color: #60afdf;
 }
 
 .main-content {
+  position: relative;
+  z-index: 1;
   padding-top: 20px;
 }
 
@@ -6492,6 +6523,36 @@ body {
 
 .sidebar-high {
   margin-top: -80px;
+}
+
+.padding-row {
+  padding-top: 20px;
+}
+
+.logged-out .main-content {
+  width: 940px;
+  padding: 20px;
+  margin: auto;
+  background-color: #eaf1e6;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+     -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.logged-out .footer {
+  color: #eaf1e6;
+}
+
+.logged-out .footer .muted {
+  color: #f1f1e4;
+}
+
+.logged-out .footer a {
+  font-weight: bold;
+  color: #f1f1e4;
+  text-decoration: underline;
 }
 
 /*!

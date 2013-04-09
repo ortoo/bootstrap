@@ -1,7 +1,13 @@
 // Governorhub content
 
+body.logged-out {
+    background-color: @headerBackground;
+}
+
 .main-content {
     padding-top: @sheetPadding;
+    position: relative;
+    z-index: 1;
 }
 
 .sidebar-high,
@@ -16,4 +22,31 @@
 
 .sidebar-high {
     margin-top: ((-1 * @sheetPadding) - 30 - (@ghMainNavbarHeight /2));
+}
+
+.padding-row {
+    padding-top: @sheetPadding;
+}
+
+.logged-out .main-content {
+    background-color: @ghPale;
+    width: @gridRowWidth;
+    margin: auto;
+    padding: @sheetPadding;
+    .gh-elem-shadow();
+    .sheet-border();
+}
+
+.logged-out .footer {
+    color: @ghPale;
+
+    .muted {
+        color: @ghBeige;
+    }
+
+    a {
+        color: @ghBeige;
+        font-weight: bold;
+        text-decoration: underline;
+    }
 }
