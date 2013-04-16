@@ -2,12 +2,21 @@
 
 body.logged-out {
     background-color: @headerBackground;
+
+    .logged-in {
+        display: none;
+    }
+}
+
+body.logged-in {
+
+    .logged-out {
+        display: none;
+    }
 }
 
 .main-content {
     padding-top: @sheetPadding;
-    position: relative;
-    z-index: 1;
 }
 
 .sidebar-high,
@@ -17,6 +26,10 @@ body.logged-out {
     .accordion-group {
         background-color: @sidebarColour;
         .gh-elem-shadow();
+    }
+
+    .accordion-heading {
+        text-transform: uppercase;
     }
 }
 
